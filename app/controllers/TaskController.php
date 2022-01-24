@@ -40,7 +40,7 @@ class TaskController {
         require_once $this::TEMPLATE;
     }
 
-    public function getPageUrl(int $page) {
+    public function getPageUrl(int $page): string {
         $queryString = array_map(
             function ($param) {
                 return "$param=" . htmlspecialchars($_GET[$param]);

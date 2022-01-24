@@ -3,7 +3,7 @@
 class User extends BaseModel {
     protected string $table = 'user';
 
-    public function find(string $username, string $password) {
+    public function find(string $username, string $password): mixed {
         $stmt = $this->db->prepare(
             "SELECT `username`, `is_admin`
             FROM $this->table

@@ -25,7 +25,7 @@ class TaskEditController extends TaskFormController {
         $this->task = $this->findTask();
     }
 
-    protected function checkPermission() {
+    protected function checkPermission(): bool {
         return $_SESSION['user']['is_admin'] ?? false;
     }
 
@@ -62,7 +62,7 @@ class TaskEditController extends TaskFormController {
         ];
     }
 
-    protected function isTextModified() {
+    protected function isTextModified(): bool {
         return !$this->task['modified_text_at']
             && $this->safeInput['text'] !== $this->task['text'];
     }
