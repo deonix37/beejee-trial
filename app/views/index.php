@@ -65,7 +65,8 @@
                                 <div class="col d-flex flex-column">
                                     <div>
                                         Status:
-                                        <span class="<?= $task['status'] === 'Completed' ? 'text-success' : 'text-secondary' ?>">
+                                        <span class="<?= $task['status'] === Task::STATUS_COMPLETED
+                                                        ? 'text-success' : 'text-secondary' ?>">
                                             <?= $task['status'] ?>
                                         </span>
                                     </div>

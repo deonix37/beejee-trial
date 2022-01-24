@@ -24,7 +24,7 @@ class TaskAddController extends TaskFormController {
             'text' => $this->safeInput['text'],
             'username' => $this->safeInput['username'],
             'email' => $this->safeInput['email'],
-            'status' => 'In progress',
+            'status' => Task::STATUS_IN_PROGRESS,
         ];
     }
 }

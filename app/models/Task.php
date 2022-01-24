@@ -1,6 +1,9 @@
 <?php
 
 class Task extends BaseModel {
+    public const STATUS_COMPLETED = 'Completed';
+    public const STATUS_IN_PROGRESS = 'In progress';
+
     protected string $table = 'task';
 
     public function findById(int $id): mixed {

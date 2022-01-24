@@ -5,8 +5,8 @@ abstract class TaskFormController {
 
     protected const REQUIRED_FIELDS = [];
     protected const TASK_STATUSES = [
-        'Completed' => 'Completed',
-        'In progress' => 'In progress',
+        Task::STATUS_COMPLETED => 'Completed',
+        Task::STATUS_IN_PROGRESS => 'In progress',
     ];
 
     protected array $safeInput = [];
