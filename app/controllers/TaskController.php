@@ -41,14 +41,7 @@ class TaskController {
     }
 
     public function getPageUrl(int $page): string {
-        $queryString = array_map(
-            function ($param) {
-                return "$param=" . htmlspecialchars($_GET[$param]);
-            },
-            array_diff(array_keys($_GET), ['page']),
-        );
-
-        return "/?page=$page&" . implode('&', $queryString);
+        return '?' . http_build_query(array_merge($_GET, ['page' => $page]));
     }
 
     protected function getTasks(): array {
