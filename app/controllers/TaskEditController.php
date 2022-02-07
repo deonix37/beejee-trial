@@ -44,7 +44,7 @@ class TaskEditController extends TaskFormController {
         try {
             $this->model->update($this->getValidatedData());
         } catch (PDOException $e) {
-            header('Location: /?error_message=Failed to update the task');
+            header('Location: /?error_message=' . $e->getMessage());
             exit();
         }
         header('Location: /?success_message=Successfully updated the task');

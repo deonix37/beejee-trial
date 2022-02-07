@@ -13,7 +13,7 @@ class TaskAddController extends TaskFormController {
         try {
             (new Task())->create($this->getValidatedData());
         } catch (PDOException $e) {
-            header('Location: /?error_message=Failed to add a new task');
+            header('Location: /?error_message=' . $e->getMessage());
             exit();
         }
         header('Location: /?success_message=Successfully added a new task');

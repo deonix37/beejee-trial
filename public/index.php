@@ -3,17 +3,13 @@
 require_once __DIR__ . '/../autoload.php';
 
 function connect() {
-    $conf = parse_ini_file('conf/db.ini');
-    $GLOBALS['db'] = new PDO(
-        "{$conf['driver']}:host={$conf['host']};dbname={$conf['dbname']}",
-        $conf['username'], $conf['password'],
-    );
+    $GLOBALS['db'] = new PDO('sqlite:' . __DIR__ . '/../db.sqlite3');
 }
 
 function dispatch() {
     $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
     $method = $_SERVER['REQUEST_METHOD'];
-    
+
     switch ($path) {
         case '/':
             $controller = new TaskController();

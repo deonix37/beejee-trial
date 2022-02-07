@@ -1,0 +1,9 @@
+version: '3.3'
+services:
+  beejee:
+    container_name: beejee
+    image: php:8.0-apache
+    volumes:
+      - .:/var/www/html/
+    ports:
+      - 8000:80
