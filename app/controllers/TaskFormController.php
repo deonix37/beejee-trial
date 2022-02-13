@@ -50,7 +50,5 @@ abstract class TaskFormController {
         return empty($this->errors);
     }
 
-    abstract protected function getValidatedData(): array;
-
     abstract protected function submit(): void;
 }
