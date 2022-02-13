@@ -6,14 +6,16 @@ function connect() {
     $conf = parse_ini_file('conf/db.ini');
     $GLOBALS['db'] = new PDO(
         "{$conf['driver']}:host={$conf['host']};dbname={$conf['dbname']}",
-        $conf['username'], $conf['password'],
+        $conf['username'], $conf['password'], [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        ]
     );
 }
 
 function dispatch() {
     $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
     $method = $_SERVER['REQUEST_METHOD'];
-    
+
     switch ($path) {
         case '/':
             $controller = new TaskController();

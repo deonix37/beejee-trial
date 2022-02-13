@@ -6,7 +6,7 @@ class Task extends BaseModel {
 
     protected string $table = 'task';
 
-    public function findById(int $id): mixed {
+    public function findById(int $id) {
         $stmt = $this->db->prepare(
             "SELECT `id`, `username`, `email`, `text`, `status`, `modified_text_at`
             FROM $this->table
@@ -22,7 +22,7 @@ class Task extends BaseModel {
         string $orderField = 'id',
         string $orderDirection = 'ASC',
         ?int $limit = null,
-        int $offset = 0,
+        int $offset = 0
     ): array {
         $limit = $limit ?? 'NULL';
 

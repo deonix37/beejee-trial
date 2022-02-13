@@ -1,1 +1,1 @@
-http://beejee-trial-kb.zzz.com.ua
+PHP 7.4+

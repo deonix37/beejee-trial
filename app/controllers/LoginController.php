@@ -49,7 +49,7 @@ class LoginController {
         return empty($this->errors);
     }
 
-    protected function findUser(): mixed {
+    protected function findUser() {
         return (new User())->find(
             $this->safeInput['username'],
             $this->safeInput['password'],
